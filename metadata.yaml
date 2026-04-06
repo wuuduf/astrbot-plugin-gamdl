@@ -1,0 +1,7 @@
+name: astrbot_plugin_gamdl
+display_name: Apple Music (GAMDL)
+desc: 基于 gamdl 的 AstrBot 单插件，支持 Apple Music 搜索、下载、封面、歌词、动态封面、MV、艺人浏览（NapCat/aiocqhttp）
+help: 发送 /am help 查看命令帮助
+version: v0.1.0
+author: jelly
+repo: https://github.com/wuuduf/astrbot-plugin-gamdl

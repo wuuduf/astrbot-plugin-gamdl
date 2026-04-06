@@ -1,0 +1,173 @@
+{
+  "search_limit": {
+    "description": "搜索返回数量",
+    "hint": "每次搜索展示的条目数",
+    "type": "int",
+    "slider": {"min": 1, "max": 20, "step": 1},
+    "default": 8
+  },
+  "selection_timeout": {
+    "description": "多轮会话超时(秒)",
+    "hint": "选歌/二级选择等待时间，超时会自动清理",
+    "type": "int",
+    "slider": {"min": 30, "max": 300, "step": 10},
+    "default": 90
+  },
+  "auto_parse_url": {
+    "description": "自动识别链接",
+    "hint": "开启后会自动识别 Apple Music 链接并执行",
+    "type": "bool",
+    "default": true
+  },
+  "default_transfer_mode": {
+    "description": "默认传输模式",
+    "hint": "song/专辑/歌单默认发送方式",
+    "type": "string",
+    "options": ["one(逐个)", "zip(压缩包)"],
+    "default": "one(逐个)"
+  },
+  "job_progress_notify": {
+    "description": "任务进度提醒",
+    "hint": "下载任务执行期间定时发送进行中状态",
+    "type": "bool",
+    "default": true
+  },
+  "job_progress_interval": {
+    "description": "进度提醒间隔(秒)",
+    "hint": "最小5秒，建议15~30秒",
+    "type": "int",
+    "slider": {"min": 5, "max": 120, "step": 5},
+    "default": 20
+  },
+  "max_concurrency": {
+    "description": "后台任务并发",
+    "hint": "建议1~2，设备性能不足请保持1",
+    "type": "int",
+    "slider": {"min": 1, "max": 4, "step": 1},
+    "default": 1
+  },
+  "job_timeout_seconds": {
+    "description": "任务超时(秒)",
+    "hint": "单个任务最长执行时间",
+    "type": "int",
+    "slider": {"min": 60, "max": 21600, "step": 60},
+    "default": 7200
+  },
+  "temp_dir": {
+    "description": "临时目录",
+    "hint": "留空时使用插件 data 目录下 temp",
+    "type": "string",
+    "default": ""
+  },
+  "download_dir": {
+    "description": "下载目录",
+    "hint": "留空时使用插件 data 目录下 downloads",
+    "type": "string",
+    "default": ""
+  },
+  "clean_cache_on_reload": {
+    "description": "重载时清理临时目录",
+    "hint": "仅清理插件临时目录",
+    "type": "bool",
+    "default": false
+  },
+  "path_map": {
+    "description": "路径映射",
+    "hint": "下载路径=>AstrBot 可见路径；多条用 ; 或换行分隔。例: /srv/amdl/downloads=>/mnt/amdl/downloads",
+    "type": "string",
+    "default": ""
+  },
+  "default_storefront": {
+    "description": "默认区服",
+    "hint": "如 us、jp、cn",
+    "type": "string",
+    "default": "us"
+  },
+  "use_wrapper": {
+    "description": "使用 wrapper 账号",
+    "hint": "开启后通过 wrapper 获取 Apple 账号凭证",
+    "type": "bool",
+    "default": true
+  },
+  "wrapper_account_url": {
+    "description": "wrapper 地址",
+    "hint": "如 http://127.0.0.1:30020",
+    "type": "string",
+    "default": "http://127.0.0.1:30020"
+  },
+  "cookies_path": {
+    "description": "cookies 文件路径",
+    "hint": "use_wrapper=false 时需要 Netscape cookies.txt",
+    "type": "string",
+    "default": ""
+  },
+  "language": {
+    "description": "Apple API 语言",
+    "hint": "如 zh-Hans-CN / en-US",
+    "type": "string",
+    "default": "zh-Hans-CN"
+  },
+  "song_codec_priority": {
+    "description": "歌曲编码优先级",
+    "hint": "逗号分隔，如 alac,aac-legacy；可选值见 README",
+    "type": "string",
+    "default": "alac,aac-legacy"
+  },
+  "artist_auto_select": {
+    "description": "艺人链接默认选择",
+    "hint": "artist 直接下载时的默认策略",
+    "type": "string",
+    "options": ["all-albums", "music-videos", "top-songs"],
+    "default": "all-albums"
+  },
+  "allow_music_video": {
+    "description": "允许 MV 下载",
+    "hint": "关闭后会跳过 music-video",
+    "type": "bool",
+    "default": true
+  },
+  "allow_post_video": {
+    "description": "允许 post 视频",
+    "hint": "关闭后会跳过 post/uploaded-videos",
+    "type": "bool",
+    "default": false
+  },
+  "allow_large_file_zip": {
+    "description": "允许 ZIP 聚合",
+    "hint": "多文件任务允许打包 ZIP",
+    "type": "bool",
+    "default": true
+  },
+  "gamdl_invoke_mode": {
+    "description": "GAMDL 调用模式",
+    "hint": "python 为模块直调，subprocess 为命令行兜底",
+    "type": "string",
+    "options": ["python", "subprocess"],
+    "default": "python"
+  },
+  "gamdl_executable": {
+    "description": "GAMDL 可执行文件",
+    "hint": "subprocess 模式下使用，如 gamdl",
+    "type": "string",
+    "default": "gamdl"
+  },
+  "gamdl_python_path": {
+    "description": "本地 GAMDL 源码路径",
+    "hint": "可选。填写后优先从该目录导入 gamdl 模块",
+    "type": "string",
+    "default": ""
+  },
+  "cover_size": {
+    "description": "封面尺寸",
+    "hint": "导出封面尺寸，例如 3000x3000",
+    "type": "string",
+    "default": "3000x3000"
+  },
+  "cover_format": {
+    "description": "封面格式",
+    "hint": "封面导出格式",
+    "type": "string",
+    "options": ["jpg", "png"],
+    "default": "jpg"
+  }
+}
