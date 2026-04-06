@@ -52,7 +52,7 @@ ghcr.io/itouakirai/wrapper:x86
 在 AstrBot 的 `astrbot_plugin_gamdl` 配置页面，至少要填这两个：
 
 - `use_wrapper = true`
-- `wrapper_account_url = http://<wrapper主机IP>:30020`（如果你自己的 wrapper 用 `20030`，就填 `http://<IP>:20030`）
+- `wrapper_account_url = http://<wrapper主机IP>:30020`
 - `wrapper_decrypt_ip = <wrapper主机IP>:10020`
 
 容器跨主机部署时，不要写 `127.0.0.1`，要写 AstrBot 容器可访问的主机 IP。
@@ -72,7 +72,7 @@ ghcr.io/itouakirai/wrapper:x86
 本仓库是“单插件”架构，不需要再单独部署 `astrbot-applemusic-service`。
 
 依赖关系：
-- 上游下载能力来自 `gamdl`（以及你参考的 `gamdl-telegram-bot` 方案）
+- 上游下载能力来自 `gamdl`
 - AstrBot 插件层负责命令、会话、QQ 消息发送
 
 ## 安装
