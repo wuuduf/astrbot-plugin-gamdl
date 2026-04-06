@@ -8,6 +8,55 @@
 - 封面/动态封面/歌词导出
 - NapCat/OneBot 文件发送
 
+## 快速开始（先部署 wrapper）
+
+使用本插件前，建议先把 wrapper 跑起来，再去 AstrBot 管理页面填写配置。
+
+### 第一步：初始化账号数据（一次性）
+
+```bash
+docker run -v ./rootfs/data:/app/rootfs/data -e args="-L <你的账号>:<你的密码> -F" --rm jelly714love/wrapper:x86
+```
+
+### 第二步：常驻运行 wrapper（arm64 / NanoPi 示例）
+
+```bash
+docker run -d \
+  --name wrapper \
+  --restart unless-stopped \
+  -v ./rootfs/data:/app/rootfs/data \
+  -p 10020:10020 \
+  -p 20020:20020 \
+  -p 30020:30020 \
+  -e args="-H 0.0.0.0 -M 20020" \
+  jelly714love/wrapper:nanopi-r2s
+```
+
+### 第三步：看日志并按提示操作
+
+```bash
+docker logs -f wrapper
+```
+
+参考教程（仅参考）：  
+[https://applemusic.mintlify.app/amdl/quickstart/macos](https://applemusic.mintlify.app/amdl/quickstart/macos)
+
+如果是 x86 平台，镜像建议使用：
+
+```bash
+ghcr.io/itouakirai/wrapper:x86
+```
+
+## AstrBot 配置页怎么填
+
+在 AstrBot 的 `astrbot_plugin_gamdl` 配置页面，至少要填这两个：
+
+- `use_wrapper = true`
+- `wrapper_account_url = http://<wrapper主机IP>:30020`（如果你自己的 wrapper 用 `20030`，就填 `http://<IP>:20030`）
+- `wrapper_decrypt_ip = <wrapper主机IP>:10020`
+
+容器跨主机部署时，不要写 `127.0.0.1`，要写 AstrBot 容器可访问的主机 IP。
+
 ## 特性
 
 - 支持平台：QQ NapCat（OneBot/aiocqhttp）
