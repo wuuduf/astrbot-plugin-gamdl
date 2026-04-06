@@ -15,7 +15,7 @@
 ### 第一步：初始化账号数据（一次性）
 
 ```bash
-docker run -v ./rootfs/data:/app/rootfs/data -e args="-L <你的账号>:<你的密码> -F" --rm jelly714love/wrapper:x86
+docker run -v ./rootfs/data:/app/rootfs/data -e args="-L <你的账号>:<你的密码> -F" --rm jelly714love/wrapper:nanopi-r2s
 ```
 
 ### 第二步：常驻运行 wrapper（arm64 / NanoPi 示例）
