@@ -576,6 +576,7 @@ class LocalAppleMusicBackend:
                 output_path=str(self.cfg.download_dir),
                 temp_path=str(self.cfg.temp_dir),
                 use_wrapper=self.cfg.use_wrapper,
+                wrapper_decrypt_ip=self.cfg.wrapper_decrypt_ip,
                 save_cover=include_cover,
                 cover_size=cover_size,
                 cover_format=cover_enum,
@@ -1412,6 +1413,8 @@ class LocalAppleMusicBackend:
                 "--use-wrapper",
                 "--wrapper-account-url",
                 self.cfg.wrapper_account_url,
+                "--wrapper-decrypt-ip",
+                self.cfg.wrapper_decrypt_ip,
             ])
         else:
             cmd.extend([

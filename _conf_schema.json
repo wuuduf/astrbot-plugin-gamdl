@@ -91,9 +91,15 @@
   },
   "wrapper_account_url": {
     "description": "wrapper 地址",
-    "hint": "如 http://127.0.0.1:30020",
+    "hint": "可填写远程地址，如 http://192.168.1.10:20030（也支持 192.168.1.10:20030 自动补 http://）",
     "type": "string",
     "default": "http://127.0.0.1:30020"
+  },
+  "wrapper_decrypt_ip": {
+    "description": "wrapper 解密地址",
+    "hint": "用于歌曲解密端口（上游默认 127.0.0.1:10020），可改远程如 192.168.1.10:10020",
+    "type": "string",
+    "default": "127.0.0.1:10020"
   },
   "cookies_path": {
     "description": "cookies 文件路径",

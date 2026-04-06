@@ -96,7 +96,9 @@ pip install -r requirements.txt
 - `temp_dir`：临时目录（歌词/封面/ZIP）
 - `clean_cache_on_reload`：重载时清理临时目录
 - `path_map`：路径映射（容器场景可用）
-- `use_wrapper` / `wrapper_account_url` / `cookies_path`：Apple 鉴权来源
+- `use_wrapper` / `wrapper_account_url` / `wrapper_decrypt_ip` / `cookies_path`：Apple 鉴权与解密来源
+  - 账号 API 可配置成远程：例如 `http://192.168.1.10:20030`
+  - 解密端口可配置成远程：例如 `192.168.1.10:10020`
 
 完整项见：
 - [_conf_schema.json](./_conf_schema.json)

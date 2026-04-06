@@ -34,7 +34,10 @@ class PluginConfig:
         self.path_mappings = self._parse_path_mappings(self.path_map_raw)
 
         self.use_wrapper = self._get_bool("use_wrapper", True)
-        self.wrapper_account_url = self._get_str("wrapper_account_url", "http://127.0.0.1:30020").strip()
+        self.wrapper_account_url = self._normalize_wrapper_account_url(
+            self._get_str("wrapper_account_url", "http://127.0.0.1:30020").strip()
+        )
+        self.wrapper_decrypt_ip = self._get_str("wrapper_decrypt_ip", "127.0.0.1:10020").strip() or "127.0.0.1:10020"
         self.language = self._get_str("language", "zh-Hans-CN").strip() or "zh-Hans-CN"
         self.song_codec_priority = self._parse_csv(self._get_str("song_codec_priority", "alac,aac-legacy"))
         if not self.song_codec_priority:
@@ -144,6 +147,15 @@ class PluginConfig:
         if text == "png":
             return "png"
         return "jpg"
+
+    @staticmethod
+    def _normalize_wrapper_account_url(raw: str) -> str:
+        text = (raw or "").strip()
+        if not text:
+            return "http://127.0.0.1:30020"
+        if text.startswith(("http://", "https://")):
+            return text
+        return f"http://{text}"
 
     @staticmethod
     def _parse_csv(raw: str) -> list[str]:

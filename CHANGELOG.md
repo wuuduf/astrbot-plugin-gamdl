@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.1] - 2026-04-06
+
+### Added
+- New plugin config `wrapper_decrypt_ip` exposed in AstrBot web panel.
+
+### Changed
+- `wrapper_account_url` hint now explicitly supports non-local / remote addresses (for example `:20030`).
+- Wrapper endpoints are now fully configurable for both Python mode and subprocess mode:
+  - Account API: `wrapper_account_url`
+  - Decrypt socket: `wrapper_decrypt_ip` (for example `x.x.x.x:10020`)
+
 ## [0.1.0] - 2026-04-06
 
 ### Added
