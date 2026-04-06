@@ -12,13 +12,19 @@
 
 使用本插件前，建议先把 wrapper 跑起来，再去 AstrBot 管理页面填写配置。
 
-### 第一步：初始化账号数据（一次性）
+### 第一步：初始化账号数据（一次性）nanopi-r2s 是arm64架构的设备   
 
 ```bash
 docker run -v ./rootfs/data:/app/rootfs/data -e args="-L <你的账号>:<你的密码> -F" --rm jelly714love/wrapper:nanopi-r2s
 ```
 
-### 第二步：常驻运行 wrapper（arm64 / NanoPi 示例）
+### 第二步：看日志并按提示操作
+
+```bash
+docker logs -f wrapper
+```
+
+### 第三步：常驻运行 wrapper（arm64示例）
 
 ```bash
 docker run -d \
@@ -31,13 +37,6 @@ docker run -d \
   -e args="-H 0.0.0.0 -M 20020" \
   jelly714love/wrapper:nanopi-r2s
 ```
-
-### 第三步：看日志并按提示操作
-
-```bash
-docker logs -f wrapper
-```
-
 参考教程（仅参考）：  
 [https://applemusic.mintlify.app/amdl/quickstart/macos](https://applemusic.mintlify.app/amdl/quickstart/macos)
 
